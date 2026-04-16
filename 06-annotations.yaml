@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annotations
+  annotations:
+    imageregistry: "https://hub.docker.com/"
+    docker.com: "https://hemanchadra/post/k8s/"
+spec:
+  conatiners:
+  - name: nginx
+    image: nginx
