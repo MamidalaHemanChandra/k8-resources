@@ -6,6 +6,6 @@ metadata:
     imageregistry: "https://hub.docker.com/"
     docker.com: "https://hemanchadra/post/k8s/"
 spec:
-  conatiners:
+  containers:
   - name: nginx
     image: nginx
