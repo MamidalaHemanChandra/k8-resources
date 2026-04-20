@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ds-hostpath-demo
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: hostpath-demo
+  template:
+    metadata:
+      labels:
+        app: hostpath-demo
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["sh", "-c", "sleep 3600"]
+        volumeMounts:
+        - name: node-log
+          mountPath: /node-logs
+
+      volumes:
+      - name: node-log
+        hostPath:
+          path: /var/log
+          type: Directory
