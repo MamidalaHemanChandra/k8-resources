@@ -19,6 +19,7 @@ spec:
         volumeMounts:
         - name: node-log
           mountPath: /node-logs
+          readOnly: true
 
       volumes:
       - name: node-log
