@@ -25,6 +25,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
+  # volumeName: efs-static
 ---
 apiVersion: v1
 kind: Pod
@@ -42,4 +43,4 @@ spec:
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: ebs-static-claim
+      claimName: efs-static-claim
