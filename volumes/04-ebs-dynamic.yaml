@@ -9,7 +9,7 @@ volumeBindingMode: WaitForFirstConsumer
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ebs-claim
+  name: ebs-static-claim
 spec:
   accessModes:
     - ReadWriteOnce
