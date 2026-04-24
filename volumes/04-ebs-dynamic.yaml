@@ -2,14 +2,14 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: ebs-dynamic-sc
-reclaimPolicy: Retain
 provisioner: ebs.csi.aws.com
+reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ebs-static-claim
+  name: ebs-dynamic-claim
 spec:
   accessModes:
     - ReadWriteOnce
@@ -29,9 +29,7 @@ spec:
     volumeMounts:
     - name: persistent-storage
       mountPath: /usr/share/nginx/html
-  # nodeSelector:
-  #   topology.kubernetes.io/zone: us-east-1d
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: ebs-static-claim
+      claimName: ebs-dynamic-claim
